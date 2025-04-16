@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>신고</title>
+</head>
+<body>
+    <h1>사용자 또는 상품 신고</h1>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+    <form method="post">
+        <input type="number" name="target_user_id" placeholder="신고할 사용자 ID"><br>
+        <input type="number" name="target_item_id" placeholder="신고할 상품 ID"><br>
+        <textarea name="reason" placeholder="신고 사유를 입력하세요."></textarea><br>
+        <button type="submit">신고하기</button>
+    </form>
+</body>
+</html>

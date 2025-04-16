@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>관리자 - 사용자 관리</title>
+</head>
+<body>
+    <h1>전체 사용자 목록</h1>
+    <ul>
+        {% for user in users %}
+            <li>
+                ID: {{ user.id }}, 이메일: {{ user.email }},
+                정지 여부: {{ user.is_suspended }},
+                <form action="/admin/suspend/{{ user.id }}?token={{ token }}" method="post" style="display:inline;">
+                    <button type="submit">정지</button>
+                </form>
+                <form action="/admin/unsuspend/{{ user.id }}?token={{ token }}" method="post" style="display:inline;">
+                    <button type="submit">정지 해제</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

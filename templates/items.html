@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>중고 상품 목록</title>
+</head>
+<body>
+  <h1>중고 상품 목록</h1>
+
+  <!-- ✅ 검색 폼 -->
+  <form action="{{ url_for('item_list') }}" method="get">
+    <input type="text" name="q" placeholder="상품명 검색">
+    <input type="hidden" name="token" value="{{ token }}">
+    <button type="submit">검색</button>
+  </form>
+
+  <p>
+    <a href="{{ url_for('new_item', token=token) }}"><button>상품 등록</button></a>
+    <a href="{{ url_for('transfer_form', token=token) }}">포인트 송금</a>
+    <a href="{{ url_for('report', token=token) }}">신고하기</a>
+    <a href="{{ url_for('admin_users', token=token) }}">🔒 관리자 페이지</a>
+  </p>
+
+  <ul>
+    {% for item in items %}
+      <li>
+        <a href="{{ url_for('item_detail', item_id=item['id'], token=request.args.get('token')) }}">
+          {{ item['title'] }} - {{ item['price'] }}원
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

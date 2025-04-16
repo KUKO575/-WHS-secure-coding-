@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>상품 등록</title>
+</head>
+<body>
+    <h1>상품 등록</h1>
+    <form action="/items/new?token={{ token }}" method="post" enctype="multipart/form-data">
+        <input type="text" name="title" placeholder="상품명"><br>
+        <input type="text" name="description" placeholder="설명"><br>
+        <input type="number" name="price" placeholder="가격"><br>
+        <input type="file" name="image"><br>
+        <button type="submit">등록</button>
+    </form>
+</body>
+</html>

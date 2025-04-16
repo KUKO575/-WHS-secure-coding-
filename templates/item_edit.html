@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>상품 수정</title>
+</head>
+<body>
+    <h1>상품 가격 수정</h1>
+    <form method="post">
+        <input type="number" name="price" value="{{ item.price }}" required><br>
+        <button type="submit">수정</button>
+    </form>
+    <a href="/items/{{ item.id }}?token={{ token }}">뒤로가기</a>
+</body>
+</html>

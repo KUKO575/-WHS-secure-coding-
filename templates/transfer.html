@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>포인트 송금</title>
+</head>
+<body>
+    <h1>포인트 송금</h1>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+    <form method="post">
+        <input type="number" name="recipient_id" placeholder="받는 사용자 ID"><br>
+        <input type="number" name="amount" placeholder="송금할 포인트"><br>
+        <button type="submit">송금</button>
+    </form>
+</body>
+</html>

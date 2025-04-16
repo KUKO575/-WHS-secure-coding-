@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>상품 상세</title>
+</head>
+<body>
+    <h1>{{ item.title }}</h1>
+    <p>가격: {{ item.price }}</p>
+    <p>설명: {{ item.description }}</p>
+    {% if item.image_url %}
+        <img src="{{ item.image_url }}" width="200">
+    {% endif %}
+    <p>판매자: {{ item.seller_email }}</p>
+    <form action="/items/{{ item.id }}/delete?token={{ token }}" method="post">
+        <button>상품 삭제</button>
+    </form>
+    <a href="/items/{{ item.id }}/edit?token={{ token }}">수정</a>
+    <a href="/chat/{{ item.seller_id }}?token={{ token }}">판매자에게 메시지 보내기</a>
+</body>
+</html>
